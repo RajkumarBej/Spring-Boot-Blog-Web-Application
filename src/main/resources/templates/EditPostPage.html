@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blogger Homes</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-5">
+		<h2 class="text-center mb-4">Edit Your Post</h2>
+
+		<form th:action="@{/update}" th:object="${post}" method="post"
+			class="card p-4 shadow-sm">
+			
+			<input type="hidden" th:field="*{id}" />
+			
+			<div class="mb-3">
+				<label class="form-label">Title</label> <input type="text"
+					th:field="*{tittle}" class="form-control"
+					placeholder="Update Post Title" required>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Author</label> <input type="text"
+					th:field="*{author}" class="form-control"
+					placeholder="Update Author Name" required>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Content</label> <input type="text"
+					th:field="*{content}" class="form-control"
+					placeholder="Update Post Content" required>
+			</div>
+
+			<div class="d-flex justify-content-between">
+				<a href="/" class="btn btn-secondary">Back</a>
+				<button type="submit" class="btn btn-success">Update Post</button>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>
